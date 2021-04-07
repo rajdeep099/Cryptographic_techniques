@@ -32,7 +32,7 @@ class Email:
             content += ' '
         # print(content)
         try:
-            sender_email = "PUT SENDER's EMAIL ADDRESS HERE"
+            sender_email = "--PUT SENDER's EMAIL ADDRESS HERE--"
             password = input(str("Enter your password: "))
             server = smtplib.SMTP('smtp.gmail.com', 587)
             # server.ehlo()
@@ -53,7 +53,7 @@ class Email:
         to = input("Enter receivers Email Address: ")
         content = ' '.join([str(elem) for elem in array])
         print(content)
-        sender_email = "randmail97@gmail.com"
+        sender_email = "--put senders email address here--"
         password = input(str("Enter your password: "))
         server = smtplib.SMTP('smtp.gmail.com', 587)
         # server.ehlo()
@@ -122,14 +122,14 @@ class changeThemes:
 
 class writeHistory:
     def encrypt(self, tech):
-        query = "INSERT INTO cryptotech VALUES (%s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO <table name> VALUES (%s, %s, %s, %s, %s, %s)"
         tech = tech.split(',')
         inserted_values = (tech[0], tech[1], array[2], array[1], array[0], time.ctime())
         mycursor.execute(query, inserted_values)
         myDb.commit()
 
     def decrypt(self, tech):
-        query = "INSERT INTO cryptotech VALUES (%s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO <table name> VALUES (%s, %s, %s, %s, %s, %s)"
         tech = tech.split(',')
         inserted_values = (
             tech[0], tech[1], decryption_array[0], decryption_array[1], decryption_array[2], time.ctime())
@@ -138,9 +138,9 @@ class writeHistory:
 
 
 def deleteHistory():
-    mycursor.execute("DELETE FROM cryptotech WHERE e_d = 'E'")
+    mycursor.execute("DELETE FROM <table name> WHERE e_d = 'E'")
     myDb.commit()
-    mycursor.execute("DELETE FROM cryptotech WHERE e_d = 'D'")
+    mycursor.execute("DELETE FROM <table name> WHERE e_d = 'D'")
     myDb.commit()
     historyClicked()
 
@@ -218,7 +218,7 @@ def historyClicked():
     historyFrame = Frame(height=290, width=880, relief=SUNKEN)
     historyFrame.pack(side=RIGHT, padx=5, pady=5)
 
-    query = "SELECT * FROM cryptotech"
+    query = "SELECT * FROM <table name>"
     mycursor.execute(query)
     result = mycursor.fetchall()
 
